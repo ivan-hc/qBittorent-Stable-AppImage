@@ -1,3 +1,5 @@
+#!/bin/sh
+
 cp qbittorrent qbittorrent.zs-old;
 mv qbittorrent qbittorrent.zip;
 engrampa -h *.zip;
