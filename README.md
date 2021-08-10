@@ -1,4 +1,4 @@
-# qbittorrent-latest-appimage
+# qBittorrent Stable Latest AppImage
 A script to create and update an AppImage of qBittorrent from ppa:qbittorrent-team/qbittorrent-stable
 
 # content
