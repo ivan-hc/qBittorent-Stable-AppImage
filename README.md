@@ -1,17 +1,25 @@
 # qBittorrent Stable Latest AppImage
-A script to create and update an AppImage of qBittorrent from ppa:qbittorrent-team/qbittorrent-stable
-
-# content
-This repo cointains an appimage of qBittorrent-stable (named "qbittorrent"), the version is for Ubuntu 20.04, the qbittorrent-updater.sh file is needed to update the AppImage.
-
-# requirements
-- pkg2appimage from https://github.com/AppImage/pkg2appimage
-- appimagetool from https://github.com/AppImage/AppImageKit
-- engrampa (or a file extractor that supports appimages converted/renamed in zip format)
+A script to create or update an AppImage of qBittorrent Stable
 
 # usage
-All you need to do is to made the two files executable: chmod a+x qbittorrent qbittorrent-updater.sh
+The qbittorrent-appimage-installer.sh file is needed to create the AppImage using [pkg2appimage](https://github.com/AppImage/pkg2appimage) and [appimagetool](https://github.com/AppImage/AppImageKit). Before proceeding assure you have a symlink in /bin for appimagetool and pkg2appimage or change the command in the script with the path of each AppImage. Fore example:
+
+`pkg2appimage ./recipe.yml`
+becomes
+`/PATH/TO/pkg2appimage-{VERSION]-x86_64.AppImage ./recipe.yml`
+
+`ARCH=x86_64 appimagetool -n ./qbittorrent/qbittorrent.AppDir`
+becomes
+`ARCH=x86_64 /PATH/TO/appimagetool-[version]-x86_64.AppImage -n ./qbittorrent/qbittorrent.AppDir`
+
+Now all you need to do is to made the script executable:
+`chmod a+x qbittorrent-appimage-installer.sh`
+
+Then run the script:
+`./qbittorrent-appimage-installer.sh`
+
+A ready to use AppImage is also available [here](https://github.com/ivan-hc/qbittorrent-latest-appimage/releases)
 
 # sources
-qBittorrent-stable from https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable
-deb http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu focal main 
+[qBittorrent-stable from launchpad ppa:qbittorrent-team/qbittorrent-stable](https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable)
+`deb http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu focal main`
