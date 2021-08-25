@@ -1,4 +1,4 @@
-# qBittorrent Stable Latest AppImage
+# qBittorrent Stable AppImage
 A script to create or update an AppImage of qBittorrent Stable
 
 # usage
