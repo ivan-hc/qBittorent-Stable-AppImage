@@ -28,9 +28,9 @@ Then run the script:
 
 However, this wont work for me. I've created symlinks in /usr/bin this way:
 
-`ln -s /PATH/TO/pkg2appimage-{VERSION}-x64_64.AppImage /usr/bin/pkg2appimage
+`ln -s /PATH/TO/pkg2appimage-{VERSION}-x64_64.AppImage /usr/bin/pkg2appimage`
 
-ln -s /PATH/TO/appimagetool-{VERSION}-x64_64.AppImage /usr/bin/appimagetool`
+`ln -s /PATH/TO/appimagetool-{VERSION}-x64_64.AppImage /usr/bin/appimagetool`
 
 If you use Debian or its derivatives (Ubuntu, Mint, Zorin, Pop_OS...) you can rely on my .deb packages [in this repository](https://github.com/ivan-hc/AppImage-Tools-for-Debian)
 
