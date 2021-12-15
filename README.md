@@ -11,16 +11,24 @@ To made this appimage updateable, the following requirements must been always pr
 To install them, just copy/paste the following commands:
 
 `wget https://raw.githubusercontent.com/ivan-hc/AM-application-manager/main/programs/x86_64/appimagetool`
+
 `wget https://raw.githubusercontent.com/ivan-hc/AM-application-manager/main/programs/x86_64/pkg2appimage`
+
 `chmod a+x ./appimagetool ./pkg2appimage`
+
 `sudo ./appimagetool`
+
 `sudo ./pkg2appimage`
 
 # Install/create qBittorrent AppImage
 
 `wget https://raw.githubusercontent.com/ivan-hc/AM-application-manager/main/programs/x86_64/qbittorrent`
+
 `chmod a+x ./qbittorrent`
+
 `sudo ./qbittorrent`
+
+Now just use qbittorrent, the check for updates will start each time you run the program.
 
 ------------------------------------
 # This and more scripts will be available on my new repository, at [ivan-hc/AM-application-manager](https://github.com/ivan-hc/AM-application-manager).
