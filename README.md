@@ -22,7 +22,7 @@ To install them, just copy/paste the following commands:
 
 # Install/create qBittorrent AppImage
 
-`wget https://raw.githubusercontent.com/ivan-hc/AM-application-manager/main/programs/x86_64/qbittorrent`
+`wget https://raw.githubusercontent.com/ivan-hc/qBittorrent-AppImage-with-automatic-updates-/main/qbittorrent`
 
 `chmod a+x ./qbittorrent`
 
