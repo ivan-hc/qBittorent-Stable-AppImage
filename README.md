@@ -1,24 +1,26 @@
-# qBittorrent Stable AppImage
-A script to create or update an AppImage of qBittorrent Stable. A ready to use AppImage is also available [here](https://github.com/ivan-hc/qbittorrent-latest-appimage/releases)
+# qBittorrent AppImage with automatic updates
+A script to create AppImage of qBittorrent Stable for 86_x64 with automatic updates.
 
-# script usage
-The qbittorrent-appimage-installer.sh file is needed to create the AppImage using [pkg2appimage](https://github.com/AppImage/pkg2appimage) and [appimagetool](https://github.com/AppImage/AppImageKit). Before proceeding it's better to create symlinks in /usr/bin this way:
+This will create an /opt/qbittorrent folder containing the AppImage, a launcher in /usr/share/applications and a script in /usr/local/bin that will check for newer versions of qBittorrent from launchpad (SOURCE at [ppa:qbittorrent-team/qbittorrent-stable](https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable)).
 
-`sudo ln -s /PATH/TO/pkg2appimage-{VERSION}-x64_64.AppImage /usr/bin/pkg2appimage`
+# Requirements
+To made this appimage updateable, the following requirements must been always present into your system:
+- [pkg2appimage](https://github.com/AppImage/pkg2appimage)
+- [appimagetool](https://github.com/AppImage/AppImageKit)
 
-`sudo ln -s /PATH/TO/appimagetool-{VERSION}-x64_64.AppImage /usr/bin/appimagetool`
+To install them, just copy/paste the following commands:
 
-If you use Debian or its derivatives (Ubuntu, Mint, Zorin, Pop_OS...) you can rely on my .deb packages [in this repository](https://github.com/ivan-hc/AppImage-Tools-for-Debian)
+`wget https://raw.githubusercontent.com/ivan-hc/AM-application-manager/main/programs/x86_64/appimagetool`
+`wget https://raw.githubusercontent.com/ivan-hc/AM-application-manager/main/programs/x86_64/pkg2appimage`
+`chmod a+x ./appimagetool ./pkg2appimage`
+`sudo ./appimagetool`
+`sudo ./pkg2appimage`
 
-Made the script executable:
+# Install/create qBittorrent AppImage
 
-`chmod a+x ./qbittorrent-appimage-installer.sh`
+`wget https://raw.githubusercontent.com/ivan-hc/AM-application-manager/main/programs/x86_64/qbittorrent`
+`chmod a+x ./qbittorrent`
+`sudo ./qbittorrent`
 
-And run it:
-
-`./qbittorrent-appimage-installer.sh`
-
-# sources
-[qBittorrent-stable from launchpad ppa:qbittorrent-team/qbittorrent-stable](https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable)
-
-`deb http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu focal main`
+------------------------------------
+# This and more scripts will be available on my new repository, at [ivan-hc/AM-application-manager](https://github.com/ivan-hc/AM-application-manager).
