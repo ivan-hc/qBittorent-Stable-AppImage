@@ -17,5 +17,10 @@ Updates are manage by a script in the folder of the program, just launch the com
 
 `./opt/qbittorrent/AM-updater`
 
+# Install/update qBittorrent using the "[AM](https://github.com/ivan-hc/AM-application-manager)" command
+Install the program with `sudo am -i qbittorrent`
+
+Update the program with `am -u` (without "sudo").
+
 ------------------------------------
 # This and more scripts will be available on my new repository, at [ivan-hc/AM-application-manager](https://github.com/ivan-hc/AM-application-manager).
