@@ -2,11 +2,7 @@
 
 APP=qbittorrent
 
-# DEPENDENCIES, the following commands are commented because they are available only with AM instaled
-# am -i appimagetool
-# am -i pkg2appimage
-# Learn more about AM Application Manager at https://github.com/ivan-hc/AM-application-manager
-
+# CREATING THE FOLDER
 mkdir /opt/$APP
 cd /opt/$APP;
 
@@ -18,6 +14,12 @@ chmod a+x /opt/$APP/remove
 mkdir tmp;
 cd tmp;
 
+# DOWNLOADING THE DEPENDENCIES
+wget https://github.com/ivan-hc/AppMan/raw/main/applications/appimagetool/appimagetool
+wget https://github.com/ivan-hc/AppMan/raw/main/applications/pkg2appimage/pkg2appimage
+chmod a+x ./appimagetool ./pkg2appimage
+
+# CREATING THE APPIMAGE
 echo 'app: qbittorrent
 binpatch: true
 
@@ -29,7 +31,7 @@ ingredients:
     - qbittorrent
     - libtorrent-rasterbar' >> recipe.yml;
 
-pkg2appimage ./recipe.yml;
+./pkg2appimage ./recipe.yml;
 
 rm ./qbittorrent/qbittorrent.AppDir/AppRun;
 
@@ -45,7 +47,7 @@ exec "${EXEC}" "$@"' >> ./qbittorrent/qbittorrent.AppDir/AppRun;
 
 chmod a+x ./qbittorrent/qbittorrent.AppDir/AppRun;
 
-ARCH=x86_64 appimagetool -n /opt/$APP/tmp/qbittorrent/qbittorrent.AppDir;
+ARCH=x86_64 ./appimagetool -n /opt/$APP/tmp/qbittorrent/qbittorrent.AppDir;
 
 cd ..;
 mv ./tmp/*.AppImage ./$APP;
@@ -53,28 +55,27 @@ chmod a+x ./$APP
 
 rm -R -f ./tmp
 
+# LINK
+ln -s /opt/$APP/$APP /usr/local/bin/$APP
+
+# SCRIPT TO UPDATE THE PROGRAM
 echo '#!/bin/sh
 version=$(exec /opt/qbittorrent/qbittorrent --version)
 url="https://www.qbittorrent.org/download.php"
 if curl -L -s $url | grep -ioF "$version"; then
   echo "Update not needed, exit!"
-  case "$1" in
-   qbittorrent) exec /opt/qbittorrent/qbittorrent ;;
-   *) exec /opt/qbittorrent/qbittorrent "$@" ;;
-  esac
  else
   notify-send "A new version of qBittorrent is available, please wait!"
   mkdir /opt/qbittorrent/tmp
   cd /opt/qbittorrent/tmp
+  wget https://github.com/ivan-hc/AppMan/raw/main/applications/appimagetool/appimagetool
+  wget https://github.com/ivan-hc/AppMan/raw/main/applications/pkg2appimage/pkg2appimage
+  chmod a+x ./appimagetool ./pkg2appimage
   wget https://raw.githubusercontent.com/ivan-hc/AppMan/main/applications/qbittorrent/qbittorrent-updater-for-AM
   chmod a+x ./qbittorrent-updater-for-AM
   exec ./qbittorrent-updater-for-AM
-  case "$1" in
-   qbittorrent) exec /opt/qbittorrent/qbittorrent ;;
-   *) exec /opt/qbittorrent/qbittorrent "$@" ;;
-  esac
-fi' >> /usr/local/bin/$APP
-chmod a+x /usr/local/bin/$APP
+fi' >> /opt/$APP/AM-updater
+chmod a+x /opt/$APP/AM-updater
 
 echo "[Desktop Entry]
 Categories=Network;FileTransfer;P2P;Qt;
