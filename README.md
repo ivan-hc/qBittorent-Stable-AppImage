@@ -1,4 +1,3 @@
-# qBittorrent AppImage with automatic updates
 A script to create AppImage of qBittorrent Stable for 86_x64 that is able to be updated using a command.
 
 # Install/create qBittorrent AppImage
