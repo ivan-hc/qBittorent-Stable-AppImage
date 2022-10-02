@@ -22,11 +22,16 @@ chmod a+x ./appimagetool ./pkg2appimage
 # CREATING THE APPIMAGE
 echo 'app: qbittorrent
 binpatch: true
-
 ingredients:
-  dist: focal
+  dist: bionic
+  sources:
+    - deb http://archive.ubuntu.com/ubuntu/ bionic main universe restricted multiverse
+    - deb http://archive.ubuntu.com/ubuntu bionic-security main universe restricted multiverse
+    - deb http://archive.ubuntu.com/ubuntu/ bionic-updates main universe restricted multiverse
   ppas:
-    - qbittorrent-team/qbittorrent-stable
+    - savoury1/utilities
+    - savoury1/build-tools
+    - savoury1/backports
   packages:
     - qbittorrent
     - libtorrent-rasterbar' >> recipe.yml;
@@ -285,6 +290,6 @@ chown -R $currentuser /opt/$APP
 
 echo "
 
- qBittorrent Stable is provided by https://launchpad.net/~qbittorrent-team
+ qBittorrent Stable is provided by https://launchpad.net/~savoury1
   
 ";
