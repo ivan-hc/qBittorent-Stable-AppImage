@@ -17,8 +17,7 @@ jobs:
     - name: build
       if: always()
       run: |
-        sudo apt update
-        sudo apt install libfuse2
+        sudo apt update && sudo apt install libfuse2 desktop-file-utils
         wget https://raw.githubusercontent.com/ivan-hc/qbittorrent-appimage/main/qbittorrent-junest.sh
         chmod a+x ./qbittorrent-junest.sh
         ./qbittorrent-junest.sh
