@@ -150,6 +150,7 @@ function _add_launcher_and_icon() {
 	rm -R -f ./*.desktop
 	LAUNCHER=$(grep -iRl $BIN ./.junest/usr/share/applications/* | grep ".desktop" | head -1)
 	cp -r "$LAUNCHER" ./
+	sed -i 's/^SingleMainWindow=/X-SingleMainWindow=/g' ./*.desktop
 	ICON=$(cat $LAUNCHER | grep "Icon=" | cut -c 6-)
 	cp -r ./.junest/usr/share/icons/*"$ICON"* ./ 2>/dev/null
 	cp -r ./.junest/usr/share/icons/hicolor/22x22/apps/*"$ICON"* ./ 2>/dev/null
