@@ -1,3 +1,11 @@
+### Repository archived on October 1, 2024, as the official AppImage has made progress.
+
+If you are a user of "AM"/"AppMan", please switch to the official AppImage using `am -i qbittorrent` or `appman -i qbittorrent`
+
+There is no point in continuing to maintain this AppImage.
+
+---------------------------------
+
 This repository creates and distributes the unofficial Appimage of Qbittorrent.
 
 From here you can download the scripts to build on top of [JuNest](https://github.com/fsquillace/junest), the lightweight Arch Linux based distro that runs, without root privileges, on top of any other Linux distro.
